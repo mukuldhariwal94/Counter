@@ -1,0 +1,13 @@
+
+
+<?php
+$content = file_get_contents("https://www.facebook.com/mitrevels?ref=br_tf/likes");
+
+$total = substr($content, strpos($content, "PagesLikesCountDOMID")+5,3);
+
+$return = array('total_users'=>$total);
+echo json_encode($total);
+//string substr ( string $string , int $start [, int $length ] )
+//strpos(string,find,start) 
+//"[{\"like_count\":9632}]
+exit;

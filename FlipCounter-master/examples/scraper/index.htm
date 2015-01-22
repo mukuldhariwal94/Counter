@@ -1,5 +1,12 @@
 
 <!DOCTYPE html>
+<!--  
+
+This project is done only for learning purpose , and used under microsoft public license. This is forked from the project by 
+
+Who was kind enough to upload the source code 
+and make it so simple that we can can just change the values and set the counter according to our setting
+Thank You !! --> 
 <!--[if IE 6]>
 <html id="ie6" dir="ltr" lang="en-US">
 <![endif]-->
@@ -13,7 +20,7 @@
 <html dir="ltr" lang="en-US">
 <!--<![endif]-->
 <head>
-    <title>FlipCounter</title>
+    <title>FlipCounter for Revels</title>
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1024" />
@@ -32,14 +39,14 @@
         padding: 0;
     }
     body {
-        background:#f2f2f2; text-align: center;
+        background:#222222; text-align: center;
     }
     h1 {
         font-family: Arial Narrow,Arial,sans-serif;
         font-weight: 400; 
         font-style: bold;
-        color: #111111;
-        padding: 50px 0 90px 0;
+        color: #FFFFFF;
+        padding: 50px 0 50px 0;
         text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
         margin: 0;
     }
@@ -47,9 +54,9 @@
 </head>
 
 <body>
-<h1>The total number of likes on the facebook page</h1>
+<h1>The number of likes on the facebook page</h1>
 
-    <div id="flipcounter1" style="text-align: center;">0</div>
+    <div id="flipcounter1" style="text-align: center;">1111</div>
     <script type="text/javascript">
         // Load sounds
         var soundIndex = 0;
@@ -88,13 +95,13 @@
                     
                     window.setTimeout(function () {
                         updateLoop_fb();
-                    }, 5000);
+                    }, 60000);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Failed: ' + jqXHR + ' / ' + textStatus + ' / ' + errorThrown);
                     window.setTimeout(function () {
                         updateLoop_fb();
-                    }, 5000);
+                    }, 60000);
                 },
             });
         }
@@ -102,122 +109,9 @@
         // do it!
         updateLoop_fb();
     </script>
+	 <h1>The total number of followers on the instagram account</h1>
 
-    <h1>The total number of followers on the quora page </h1>
-    <div id="flipcounter" style="text-align: center;">9000</div>
-    <script type="text/javascript">
-        // Load sounds
-        var soundIndex = 0;
-        var sounds = new Array();
-        for (i=0; i<10; i=i+1)
-            sounds[i] = new Audio("tick.wav");
-
-        // Make the flip counter
-        $("#flipcounter").flipCounterInit({
-            'speed': 0.075,
-            'onFlip': function () { 
-                if (soundsEnabled)
-                {
-                    sounds[soundIndex].play();
-                    soundIndex = soundIndex + 1;
-                    if (soundIndex >= sounds.length)
-                        soundIndex = 0;
-                }
-            }
-        });
-
-        // Only play sounds when window has focus
-        var soundsEnabled = true;
-        $(window).focus(function() { soundsEnabled = true; });
-        $(window).blur(function() { soundsEnabled = false; });
-
-        // Update the counter each 5sec
-        function updateLoop_quora() {
-            $.ajax({
-                url: 'qtest.php',
-                data: '',
-                dataType: 'json',
-                success: function(data) {
-                    console.log('Updating users to: ' + data.total_users);
-                    $("#flipcounter").flipCounterUpdate(data.total_users);
-                    
-                    window.setTimeout(function () {
-                        updateLoop_fb();
-                    }, 5000);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('Failed: ' + jqXHR + ' / ' + textStatus + ' / ' + errorThrown);
-                    window.setTimeout(function () {
-                        updateLoop_quora();
-                    }, 5000);
-                },
-            });
-        }
-
-        // do it!
-        updateLoop_quora();
-    </script>
-
-
- 
-	 <h1>The total number of likes on the twitter page</h1>
-
-    <div id="flipcounter2" style="text-align: center;">0</div>
-    <script type="text/javascript">
-        // Load sounds
-        var soundIndex = 0;
-        var sounds = new Array();
-        for (i=0; i<10; i=i+1)
-            sounds[i] = new Audio("tick.wav");
-
-        // Make the flip counter
-        $("#flipcounter2").flipCounterInit({
-            'speed': 0.075,
-            'onFlip': function () { 
-                if (soundsEnabled)
-                {
-                    sounds[soundIndex].play();
-                    soundIndex = soundIndex + 1;
-                    if (soundIndex >= sounds.length)
-                        soundIndex = 0;
-                }
-            }
-        });
-
-        // Only play sounds when window has focus
-        var soundsEnabled = true;
-        $(window).focus(function() { soundsEnabled = true; });
-        $(window).blur(function() { soundsEnabled = false; });
-
-        // Update the counter each 5sec
-        function updateLoop_twitter() {
-            $.ajax({
-                url: 'ttest.php',
-                data: '',
-                dataType: 'json',
-                success: function(data) {
-                    console.log('Updating users to: ' + data.total_users);
-                    $("#flipcounter2").flipCounterUpdate(data.total_users);
-                    
-                    window.setTimeout(function () {
-                        updateLoop_twitter();
-                    }, 5000);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('Failed: ' + jqXHR + ' / ' + textStatus + ' / ' + errorThrown);
-                    window.setTimeout(function () {
-                        updateLoop_twitter();
-                    }, 5000);
-                },
-            });
-        }
-
-        // do it!
-        updateLoop_twitter();
-    </script>
-	 <h1>The total number of followers on the instagram page</h1>
-
-    <div id="flipcounter3" style="text-align: center;">0</div>
+    <div id="flipcounter3" style="text-align: center;">111</div>
     <script type="text/javascript">
         // Load sounds
         var soundIndex = 0;
@@ -256,13 +150,13 @@
                     
                     window.setTimeout(function () {
                         updateLoop_insta();
-                    }, 5000);
+                    }, 300000);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Failed: ' + jqXHR + ' / ' + textStatus + ' / ' + errorThrown);
                     window.setTimeout(function () {
                         updateLoop_insta();
-                    }, 5000);
+                    }, 300000);
                 },
             });
         }
@@ -270,9 +164,122 @@
         // do it!
         updateLoop_insta();
     </script>
-	 <h1>The total number of Youtube on the subs page</h1>
+    <h1>The total number of followers on the quora topic </h1>
+    <div id="flipcounter" style="text-align: center;">111</div>
+    <script type="text/javascript">
+        // Load sounds
+        var soundIndex = 0;
+        var sounds = new Array();
+        for (i=0; i<10; i=i+1)
+            sounds[i] = new Audio("tick.wav");
 
-    <div id="flipcounter4" style="text-align: center;">0</div>
+        // Make the flip counter
+        $("#flipcounter").flipCounterInit({
+            'speed': 0.075,
+            'onFlip': function () { 
+                if (soundsEnabled)
+                {
+                    sounds[soundIndex].play();
+                    soundIndex = soundIndex + 1;
+                    if (soundIndex >= sounds.length)
+                        soundIndex = 0;
+                }
+            }
+        });
+
+        // Only play sounds when window has focus
+        var soundsEnabled = true;
+        $(window).focus(function() { soundsEnabled = true; });
+        $(window).blur(function() { soundsEnabled = false; });
+
+        // Update the counter each 5sec
+        function updateLoop_quora() {
+            $.ajax({
+                url: 'qtest.php',
+                data: '',
+                dataType: 'json',
+                success: function(data) {
+                    console.log('Updating users to: ' + data.total_users);
+                    $("#flipcounter").flipCounterUpdate(data.total_users);
+                    
+                    window.setTimeout(function () {
+                        updateLoop_fb();
+                    }, 300000);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('Failed: ' + jqXHR + ' / ' + textStatus + ' / ' + errorThrown);
+                    window.setTimeout(function () {
+                        updateLoop_quora();
+                    }, 300000);
+                },
+            });
+        }
+
+        // do it!
+        updateLoop_quora();
+    </script>
+
+
+ 
+	 <h1>The total number of followers on the twitter account</h1>
+
+    <div id="flipcounter2" style="text-align: center;">111</div>
+    <script type="text/javascript">
+        // Load sounds
+        var soundIndex = 0;
+        var sounds = new Array();
+        for (i=0; i<10; i=i+1)
+            sounds[i] = new Audio("tick.wav");
+
+        // Make the flip counter
+        $("#flipcounter2").flipCounterInit({
+            'speed': 0.075,
+            'onFlip': function () { 
+                if (soundsEnabled)
+                {
+                    sounds[soundIndex].play();
+                    soundIndex = soundIndex + 1;
+                    if (soundIndex >= sounds.length)
+                        soundIndex = 0;
+                }
+            }
+        });
+
+        // Only play sounds when window has focus
+        var soundsEnabled = true;
+        $(window).focus(function() { soundsEnabled = true; });
+        $(window).blur(function() { soundsEnabled = false; });
+
+        // Update the counter each 5sec
+        function updateLoop_twitter() {
+            $.ajax({
+                url: 'ttest.php',
+                data: '',
+                dataType: 'json',
+                success: function(data) {
+                    console.log('Updating users to: ' + data.total_users);
+                    $("#flipcounter2").flipCounterUpdate(data.total_users);
+                    
+                    window.setTimeout(function () {
+                        updateLoop_twitter();
+                    }, 300000);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('Failed: ' + jqXHR + ' / ' + textStatus + ' / ' + errorThrown);
+                    window.setTimeout(function () {
+                        updateLoop_twitter();
+                    }, 300000);
+                },
+            });
+        }
+
+        // do it!
+        updateLoop_twitter();
+    </script>
+
+	 <h1>The total number of subscribers on the Youtube channel</h1>
+
+    <div id="flipcounter4" style="text-align: center;">111</div>
     <script type="text/javascript">
         // Load sounds
         var soundIndex = 0;
@@ -311,13 +318,13 @@
                     
                     window.setTimeout(function () {
                         updateLoop_y();
-                    }, 5000);
+                    }, 300000);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Failed: ' + jqXHR + ' / ' + textStatus + ' / ' + errorThrown);
                     window.setTimeout(function () {
                         updateLoop_y();
-                    }, 5000);
+                    }, 300000);
                 },
             });
         }
